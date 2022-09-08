@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Vite;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,10 +27,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Model::unguard();
+        Filament::serving(function (){
+            Filament::registerTheme(
+                app(Vite::class)('resources/css/filament.css'),
+            );
+        });
         Filament::registerNavigationGroups([
                                                'Dashboard',
-                                               'Students',
-                                               'Academics',
+                                               'Admission Management',
+                                               'Academics Management',
+                                               'Finance Management',
+                                               'Employee Management',
+                                               'User Management',
+
                                            ]);
     }
 }

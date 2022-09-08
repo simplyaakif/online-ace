@@ -16,7 +16,7 @@ class BatchResource extends Resource
     protected static ?string $model = Batch::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark';
-    protected static ?string $navigationGroup = 'Academics';
+    protected static ?string $navigationGroup = 'Academics Management';
 
     public static function form(Form $form): Form
     {
@@ -31,9 +31,9 @@ class BatchResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(65535),
                 Forms\Components\TextInput::make('limit')->numeric(),
+                Forms\Components\Textarea::make('description')
+                    ->maxLength(65535)->columnSpan(2),
                 Forms\Components\Repeater::make('batch_schedule')
                 ->schema([
                     Forms\Components\Select::make('day')->required()

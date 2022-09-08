@@ -18,6 +18,12 @@ class BatchStudentResource extends Resource
     protected static ?string $model = BatchStudent::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationLabel = 'Admissions';
+
+    protected static ?string $navigationGroup = 'Admission Management';
+
+    protected static ?string $modelLabel = 'Admission';
+
 
     public static function form(Form $form): Form
     {

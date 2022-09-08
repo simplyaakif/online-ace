@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->nullable();
             $table->string('role')->nullable();
             $table->string('name');
+            $table->string('mobile');
             $table->string('gender')->nullable();
             $table->text('address')->nullable();
             $table->timestamps();

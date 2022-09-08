@@ -18,6 +18,7 @@ class RecoveryResource extends Resource
     protected static ?string $model = Recovery::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-cash';
+    protected static ?string $navigationGroup = 'Finance Management';
 
     public static function form(Form $form): Form
     {
