@@ -9,6 +9,8 @@ class BatchStudent extends Model
 {
     use HasFactory;
 
+    protected $table = 'batch_student';
+
     const STATUS=[
       'active'=>'Active',
       'cancelled'=>'Cancelled',

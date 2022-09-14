@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -40,25 +41,26 @@ class RecoveryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('batch_students_id'),
-                Tables\Columns\TextColumn::make('amount'),
-                Tables\Columns\TextColumn::make('due_date')
+
+                TextColumn::make('batch_student.student.name'),
+                TextColumn::make('batch_student.batch.title'),
+                TextColumn::make('amount'),
+                TextColumn::make('due_date')
                     ->date(),
                 Tables\Columns\BooleanColumn::make('is_paid'),
-                Tables\Columns\TextColumn::make('paid_on')
+                TextColumn::make('paid_on')
                     ->date(),
-                Tables\Columns\TextColumn::make('account_id'),
-                Tables\Columns\TextColumn::make('tx_id'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('account.title'),
+                TextColumn::make('tx_id'),
+                TextColumn::make('created_at')
                     ->dateTime(),
             ])
             ->filters([
-                //
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+//                Tables\Actions\Action::make()
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

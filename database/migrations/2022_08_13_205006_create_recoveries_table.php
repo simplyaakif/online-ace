@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('recoveries', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('batch_students_id')->nullable();
+            $table->bigInteger('batch_student_id')->nullable();
             $table->bigInteger('account_id')->nullable();
             $table->integer('amount')->nullable();
             $table->date('due_date')->nullable();

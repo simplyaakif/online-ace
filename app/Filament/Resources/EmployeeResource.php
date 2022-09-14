@@ -27,9 +27,9 @@ class EmployeeResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('user_id'),
-                TextInput::make('role')
-                    ->maxLength(255),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('dp')
+            ->collection('dp')
+            ->image(),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -49,8 +49,10 @@ class EmployeeResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('dp')
+            ->collection('dp')
+            ->rounded(),
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('role'),
                 Tables\Columns\TextColumn::make('mobile'),
                 Tables\Columns\TextColumn::make('user.email')->label('Email'),
                 Tables\Columns\TextColumn::make('gender'),

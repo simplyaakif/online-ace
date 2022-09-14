@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('batch_students', function (Blueprint $table) {
+        Schema::create('batch_student', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('batch_id')->nullable();
             $table->bigInteger('student_id')->nullable();

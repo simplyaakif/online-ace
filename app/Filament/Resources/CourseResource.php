@@ -24,12 +24,15 @@ class CourseResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(65535),
                 Forms\Components\TextInput::make('price')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('duration')
                     ->maxLength(255),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('cover')
+            ->collection('cover')
+            ->image(),
+                Forms\Components\Textarea::make('description')
+                    ->maxLength(65535)->columnSpan(2),
             ]);
     }
 
@@ -37,13 +40,14 @@ class CourseResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('cover')
+                    ->collection('cover')->rounded(),
                 Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('price'),
                 Tables\Columns\TextColumn::make('duration'),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-            ])
+                    ->dateTime()->sortable(),
+            ])->defaultSort('created_at','desc')
             ->filters([
                 //
             ])

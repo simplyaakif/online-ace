@@ -32,6 +32,9 @@ class BatchResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('limit')->numeric(),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('cover')
+                    ->collection('cover')
+            ->image(),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535)->columnSpan(2),
                 Forms\Components\Repeater::make('batch_schedule')
@@ -55,6 +58,7 @@ class BatchResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('cover')->collection('cover')->rounded(),
                 Tables\Columns\TextColumn::make('title')
                 ->searchable(),
                 Tables\Columns\TextColumn::make('course.title'),
