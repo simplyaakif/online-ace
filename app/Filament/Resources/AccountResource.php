@@ -43,6 +43,7 @@
         public static function table(Table $table): Table
         {
             return $table->columns([
+                                       TextColumn::make('bank')->searchable()->sortable(),
                                        TextColumn::make('title')->searchable()->sortable(),
 
                                        TextColumn::make('account_number'),

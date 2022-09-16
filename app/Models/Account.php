@@ -6,4 +6,5 @@
 
     class Account extends Model {
 
+        public static $type =['Bank','Wallet','Cash'];
     }

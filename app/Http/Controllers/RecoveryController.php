@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Recovery;
 
 class RecoveryController extends Controller
 {
-    //
+
+    public function show(Recovery $recovery)
+    {
+        return view('admin.recovery.show', $recovery);
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
     use App\Http\Controllers\HomeController;
+    use App\Http\Controllers\RecoveryController;
     use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,9 @@
 */
 
 Route::get('/', [HomeController::class,'index'])->name('website.home');
+
+
+Route::resource('recoveries', RecoveryController::class,['only' => 'show']);
+
+Route::get('register-online', [HomeController::class,'registerOnline'])->name('register-online');
+

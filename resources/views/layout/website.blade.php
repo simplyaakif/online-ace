@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Online Ace</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
+    @livewireStyles
+    @livewireScripts
 </head>
 <body>
 @yield('content')
