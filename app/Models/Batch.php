@@ -10,6 +10,9 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Batch extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
+    protected $casts = [
+        'batch_schedule' => 'json'
+    ];
     protected $guarded=[];
 
     public function course()

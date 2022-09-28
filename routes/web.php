@@ -14,9 +14,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+if (!App::environment('production')) {
 Route::get('/', [HomeController::class,'index'])->name('website.home');
-
+}
+else{
+ Route::get('/',function (){
+     return to_route('filament.auth.login');
+ }) ;
+}
 
 Route::resource('recoveries', RecoveryController::class,['only' => 'show']);
 

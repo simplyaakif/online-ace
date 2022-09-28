@@ -14,6 +14,7 @@
     @livewireScripts
 </head>
 <body>
+<x-impersonate::banner/>
 @yield('content')
 </body>
 </html>
