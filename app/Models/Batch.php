@@ -19,6 +19,6 @@ class Batch extends Model implements HasMedia
 
     public function teachers()
     {
-        return $this->belongsToMany(Employee::class,'batch_teachers');
+        return $this->belongsToMany(Employee::class,'batch_teacher');
     }
 }
