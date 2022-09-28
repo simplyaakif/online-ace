@@ -129,15 +129,24 @@
             </div>
 
             <main class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
-                <div class="text-center">
+                <div class="text-left">
                     <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
                         <span class="block xl:inline">Platform to make you</span>
                         <span class="block text-brand-r xl:inline">skilled online</span>
                     </h1>
-                    <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl
+                    <p class="mt-3 max-w-md  text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl
                 md:max-w-3xl">Live Online Sessions, right from the comfort of your home. All regular courses
                         available by professional tutors.</p>
-                    <div class="mt-5 max-w-2xl mx-auto sm:flex sm:justify-center md:mt-8">
+                    <div class="">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="you@example.com">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-5 max-w-2xl  sm:flex  md:mt-8">
                         <div class="rounded-md shadow">
                             <a href="#" class="w-full flex items-center justify-center px-8 py-3 border
                         border-transparent text-base font-medium rounded-md text-white bg-brand-b hover:bg-brand-r
@@ -155,22 +164,15 @@
     </div>
 
     <section class="bg-gray-50">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-4 gap-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4  gap-4">
             @foreach($courses as $course)
-                <div class="bg-white rounded">
-                    <div class="h-36 bg-brand-r rounded-t flex justify-center items-center">
-                        <span class="text-gray-50">
-                    {{$course->title}}
-                        </span>
-                    </div>
-                    <div class="p-4">
-                    {{$course->title}}
-                    </div>
-                </div>
+                <x-website.course-card :course="$course"/>
             @endforeach
             </div>
         </div>
     </section>
 
+
+    <section class="h-64"></section>
 @endsection

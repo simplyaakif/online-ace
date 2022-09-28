@@ -1,23 +1,29 @@
 <?php
 
-namespace Database\Factories;
+    namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+    use App\Models\Batch;
+    use App\Models\Course;
+    use Illuminate\Database\Eloquent\Factories\Factory;
+    use Illuminate\Support\Carbon;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Batch>
- */
-class BatchFactory extends Factory
-{
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition()
-    {
-        return [
-            //
-        ];
+    class BatchFactory extends Factory {
+
+        protected $model = Batch::class;
+
+        public function definition(): array
+        {
+            return [
+                'title'          => $this->faker->word(),
+
+                'description'    => $this->faker->text(),
+                'limit'          => $this->faker->randomNumber(),
+                'batch_schedule' => null,
+                'created_at'     => Carbon::now(),
+                'updated_at'     => Carbon::now(),
+                'deleted_at'     => Carbon::now(),
+
+                'course_id' => Course::factory(),
+            ];
+        }
     }
-}
