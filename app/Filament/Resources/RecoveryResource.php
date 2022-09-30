@@ -52,8 +52,8 @@
                                    ])->filters([
 
                                                ])->actions([
-                                                               Tables\Actions\EditAction::make(),
-                                                               Tables\Actions\Action::make('View Invoice')->url(fn(Recovery $record) => route('recoveries.show', $record->id))->openUrlInNewTab()
+                               Tables\Actions\EditAction::make(),
+                   Tables\Actions\Action::make('View Invoice')->url(fn(Recovery $record) => route('recoveries.show', $record->id))->openUrlInNewTab()
                                                            ])->bulkActions([
                                                                                Tables\Actions\DeleteBulkAction::make(),
                                                                            ]);

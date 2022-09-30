@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.7",
         "pxlrbt/filament-spotlight": "^0.3.5",
         "shuvroroy/filament-spatie-laravel-backup": "^1.2",
+        "spatie/browsershot": "^3.57",
         "stechstudio/filament-impersonate": "^2.5"
     },
     "require-dev": {
@@ -34,7 +35,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/general.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

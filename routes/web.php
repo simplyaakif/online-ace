@@ -1,6 +1,7 @@
 <?php
 
     use App\Http\Controllers\HomeController;
+    use App\Http\Controllers\InvoicesController;
     use App\Http\Controllers\RecoveryController;
     use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ else{
 }
 
 Route::resource('recoveries', RecoveryController::class,['only' => 'show']);
+Route::resource('invoices', InvoicesController::class,['only' => 'show']);
 
 Route::get('register-online', [HomeController::class,'registerOnline'])->name('register-online');
 
