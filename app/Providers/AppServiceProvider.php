@@ -33,11 +33,11 @@ class AppServiceProvider extends ServiceProvider
                 app(Vite::class)('resources/css/filament.css'),
             );
             Filament::registerNavigationItems([
-                                                  NavigationItem::make('Generate Invoice')
-                                                      ->url('https://filament.pirsch.io', shouldOpenInNewTab: true)
-                                                      ->icon('heroicon-o-presentation-chart-line')
-                                                      ->group('Finance Management')
-                                                      ->sort(3),
+//                                                  NavigationItem::make('Generate Invoice')
+//                                                      ->url('https://filament.pirsch.io', shouldOpenInNewTab: true)
+//                                                      ->icon('heroicon-o-presentation-chart-line')
+//                                                      ->group('Finance Management')
+//                                                      ->sort(3),
                                               ]);
         });
         Filament::registerNavigationGroups([

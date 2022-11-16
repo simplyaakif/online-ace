@@ -3,18 +3,24 @@
     namespace App\Filament\Resources;
 
     use App\Filament\Resources\RecoveryResource\Pages;
-    use App\Filament\Resources\RecoveryResource\RelationManagers;
+    use App\Models\Account;
     use App\Models\Recovery;
-    use Auth;
     use Filament\Forms;
+    use Filament\Forms\Components\Select;
+    use Filament\Forms\Components\TextInput;
     use Filament\Resources\Form;
     use Filament\Resources\Resource;
     use Filament\Resources\Table;
     use Filament\Tables;
+    use Filament\Tables\Actions\Action;
+    use Filament\Tables\Actions\DeleteBulkAction;
+    use Filament\Tables\Actions\EditAction;
     use Filament\Tables\Columns\TextColumn;
+    use Filament\Tables\Filters\Filter;
+    use Filament\Tables\Filters\Layout;
+    use Filament\Tables\Filters\SelectFilter;
     use Illuminate\Database\Eloquent\Builder;
     use Illuminate\Database\Eloquent\Model;
-    use Illuminate\Database\Eloquent\SoftDeletingScope;
 
     class RecoveryResource extends Resource {
 
@@ -26,12 +32,12 @@
         public static function form(Form $form): Form
         {
             return $form->schema([
-                                     Forms\Components\TextInput::make('batch_students_id'),
-                                     Forms\Components\TextInput::make('amount'),
+                                     TextInput::make('batch_students_id'),
+                                     TextInput::make('amount'),
                                      Forms\Components\DatePicker::make('due_date'),
                                      Forms\Components\Toggle::make('is_paid')->required(),
                                      Forms\Components\DatePicker::make('paid_on'),
-                                     Forms\Components\TextInput::make('account_id'),
+                                     TextInput::make('account_id'),
                                      Forms\Components\Textarea::make('tx_id')->maxLength(65535),
                                  ]);
         }
@@ -40,23 +46,117 @@
         {
             return $table->columns([
 
-                                       TextColumn::make('batch_student.student.name'),
+                                       TextColumn::make('batch_student.student.name')->searchable(),
                                        TextColumn::make('batch_student.batch.title'),
                                        TextColumn::make('amount'),
                                        TextColumn::make('due_date')->date(),
-                                       Tables\Columns\BooleanColumn::make('is_paid'),
+                                       Tables\Columns\IconColumn::make('is_paid')
+                                           ->options([
+                                                         'heroicon-o-x-circle'=>0,
+                                                         'heroicon-o-check-circle' => 1,
+                                                     ])
+                                           ->colors([
+                                                        'danger'=>0,
+                                                        'success' => 1,
+                                                    ]),
                                        TextColumn::make('paid_on')->date(),
-                                       TextColumn::make('account.title'),
-                                       TextColumn::make('tx_id'),
-                                       TextColumn::make('created_at')->dateTime(),
-                                   ])->filters([
+                                       TextColumn::make('account.title')
+                                           ->toggleable()
+                                           ->toggledHiddenByDefault(),
+                                       TextColumn::make('tx_id')
+                                           ->label('Transaction/Slip Number')
+                                           ->toggleable()
+                                           ->toggledHiddenByDefault(),
+                                       TextColumn::make('created_at')
+                                           ->label('Recovery Generated On')
+                                           ->toggledHiddenByDefault()
+                                           ->toggleable()
+                                           ->dateTime(),
+                                   ])
+                ->filters([
 
-                                               ])->actions([
-                               Tables\Actions\EditAction::make(),
-                   Tables\Actions\Action::make('View Invoice')->url(fn(Recovery $record) => route('recoveries.show', $record->id))->openUrlInNewTab()
-                                                           ])->bulkActions([
-                                                                               Tables\Actions\DeleteBulkAction::make(),
-                                                                           ]);
+                    Filter::make('due_date')
+                        ->form([
+                                   Forms\Components\DatePicker::make('due_from'),
+                                   Forms\Components\DatePicker::make('due_until'),
+                               ])
+                        ->query(function (Builder $query, array $data): Builder {
+                            return $query
+                                ->when(
+                                    $data['due_from'],
+                                    fn (Builder $query, $date): Builder => $query->whereDate('due_date', '>=', $date),
+                                )
+                                ->when(
+                                    $data['due_until'],
+                                    fn (Builder $query, $date): Builder => $query->whereDate('due_date', '<=', $date),
+                                );
+                        }),
+                    Filter::make('paid_on')
+                        ->form([
+                                   Forms\Components\DatePicker::make('paid_from'),
+                                   Forms\Components\DatePicker::make('paid_until'),
+                               ])
+                        ->query(function (Builder $query, array $data): Builder {
+                            return $query
+                                ->when(
+                                    $data['paid_from'],
+                                    fn (Builder $query, $date): Builder => $query->whereDate('paid_on', '>=', $date),
+                                )
+                                ->when(
+                                    $data['paid_until'],
+                                    fn (Builder $query, $date): Builder => $query->whereDate('paid_on', '<=', $date),
+                                );
+                        }),
+                    SelectFilter::make('is_paid')
+                        ->label('Paid Status')
+                        ->options([
+                                      '0'=>'Not Paid',
+                                      '1'=>'Paid',
+                                  ]),
+                    SelectFilter::make('account_id')
+                        ->label('Receiving Account')
+                        ->options(Account::query()->pluck('title','id'))
+               ], Layout::AboveContent)
+                ->actions([
+                   EditAction::make(),
+                   Action::make('Pay Recovery')
+                       ->mountUsing(fn (Forms\ComponentContainer $form, Recovery $record) => $form
+                           ->fill([
+                             'amount' => $record->amount,
+                            ]))
+                       ->form([
+                           Forms\Components\Grid::make(2)
+                      ->schema([
+                           TextInput::make('amount')
+                           ->disabled(),
+                           TextInput::make('tx_id')
+                               ->label('Transaction/Slip Number')
+                               ->placeholder('Transaction or Slip Number')
+                               ->required(),
+                           Select::make('account_id')
+                               ->label('Received As')
+                               ->options(Account::query()->pluck('title','id')),
+//                                  Select::make('authorId')
+//                                      ->label('Author')
+//                                      ->options(User::query()->pluck('name', 'id'))
+//                                      ->required(),
+                              ])
+                         ])
+                       ->action(function (Recovery $record, array $data): void {
+                           $record->amount = $data['amount'];
+                           $record->tx_id = $data['tx_id'];
+                           $record->paid_on = now();
+                           $record->is_paid = 1;
+                           $record->account_id = $data['account_id'];
+                           $record->save();
+                       })
+//                   Action::make('View Invoice')
+//                       ->url(fn(Recovery $record) => route('recoveries.show', $record->id))
+//                       ->openUrlInNewTab(),
+                       ])
+                ->bulkActions([
+                   DeleteBulkAction::make(),
+                   ]);
         }
 
         public static function canView(Model $record): bool
@@ -75,25 +175,7 @@
             ];
         }
 
-        public static function can(string $action, ?Model $record = null): bool
-            {
-                return Auth::user()->can('recovery_access'); // TODO: Change the autogenerated stub
-            }
 
-
-            public static function canCreate(): bool
-            {
-                return Auth::user()->can('recovery_create'); // TODO: Change the autogenerated stub
-            }
-            public static function canDelete(Model $record): bool
-            {
-                return Auth::user()->can('recovery_delete'); // TODO: Change the autogenerated stub
-            }
-
-            public static function canDeleteAny(): bool
-            {
-                return Auth::user()->can('recovery_delete'); // TODO: Change the autogenerated stub
-            }
 
         public static function getPages(): array
         {
