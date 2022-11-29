@@ -49,7 +49,7 @@
                                        TextColumn::make('batch_student.student.name')->searchable(),
                                        TextColumn::make('batch_student.batch.title'),
                                        TextColumn::make('amount'),
-                                       TextColumn::make('due_date')->date(),
+                                       TextColumn::make('due_date')->date()->sortable(),
                                        Tables\Columns\IconColumn::make('is_paid')
                                            ->options([
                                                          'heroicon-o-x-circle'=>0,
@@ -59,7 +59,7 @@
                                                         'danger'=>0,
                                                         'success' => 1,
                                                     ]),
-                                       TextColumn::make('paid_on')->date(),
+                                       TextColumn::make('paid_on')->date()->sortable(),
                                        TextColumn::make('account.title')
                                            ->toggleable()
                                            ->toggledHiddenByDefault(),
@@ -174,7 +174,6 @@
             return [//
             ];
         }
-
 
 
         public static function getPages(): array
