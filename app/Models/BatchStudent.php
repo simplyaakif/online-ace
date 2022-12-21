@@ -27,4 +27,9 @@ class BatchStudent extends Model
     {
         return $this->belongsTo(Batch::class);
     }
+
+    public function recoveries()
+    {
+        return $this->hasMany(Recovery::class);
+    }
 }

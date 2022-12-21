@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -63,6 +64,20 @@ class BatchStudentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+//                Action::make('Edit Recoveries')
+//                    ->mountUsing(fn (Forms\ComponentContainer $form, BatchStudent $record) => $form->fill([
+//                              'authorId' => $record->author->id,
+//                        ]))
+//                    ->action(function (User $record, array $data): void {
+//                        $record->author()->associate($data['authorId']);
+//                        $record->save();
+//                    })
+//                    ->form([
+//                               Forms\Components\Select::make('authorId')
+//                                   ->label('Author')
+//                                   ->options(User::query()->pluck('name', 'id'))
+//                                   ->required(),
+//                           ])
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -72,7 +87,7 @@ class BatchStudentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\RecoveriesRelationManager::class,
         ];
     }
 
