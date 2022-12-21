@@ -92,8 +92,6 @@ class StudentResource extends Resource
                     ->date(),
                 TextColumn::make('created_at')
                     ->dateTime(),
-                TextColumn::make('updated_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //
