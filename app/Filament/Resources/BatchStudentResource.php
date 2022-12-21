@@ -46,10 +46,10 @@ class BatchStudentResource extends Resource
     {
         return $table
             ->columns([
-              Tables\Columns\SpatieMediaLibraryImageColumn::make('student.dp')
-                  ->label('DP')
-                              ->collection('dp')
-                              ->rounded(),
+//              Tables\Columns\SpatieMediaLibraryImageColumn::make('student.dp')
+//                  ->label('DP')
+//                              ->collection('dp')
+//                              ->rounded(),
                 Tables\Columns\TextColumn::make('student.name')->searchable(),
                 Tables\Columns\TextColumn::make('batch.title')->searchable(),
                 Tables\Columns\TextColumn::make('start_date')
