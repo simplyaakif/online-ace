@@ -16,6 +16,9 @@ module.exports = {
                 warning: colors.yellow,
             }
         },
+        fontFamily:{
+            'sans': ['Nunito','ui-sans-serif', 'system-ui'],
+        }
     },
     plugins: [
         require('@tailwindcss/forms'),
