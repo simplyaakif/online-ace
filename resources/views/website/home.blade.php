@@ -346,8 +346,8 @@
                                     </ul>
                                     <div class="card-bottom">
                                         <div class="price-list price-style-01">
-                                            <div class="price current-price">$29.00 AED</div>
-                                            <div class="price old-price">$39.00 AED</div>
+                                            <div class="price current-price">29.00 AED</div>
+                                            <div class="price old-price">39.00 AED</div>
                                         </div>
                                     </div>
                                 </div>
@@ -399,8 +399,8 @@
                                     </ul>
                                     <div class="card-bottom">
                                         <div class="price-list price-style-01">
-                                            <div class="price current-price">$55.00 AED</div>
-                                            <div class="price old-price">$65.00 AED</div>
+                                            <div class="price current-price">55.00 AED</div>
+                                            <div class="price old-price">65.00 AED</div>
                                         </div>
                                     </div>
                                 </div>
@@ -452,8 +452,8 @@
                                     </ul>
                                     <div class="card-bottom">
                                         <div class="price-list price-style-01">
-                                            <div class="price current-price">$46.00 AED</div>
-                                            <div class="price old-price">$88.00 AED</div>
+                                            <div class="price current-price">46.00 AED</div>
+                                            <div class="price old-price">88.00 AED</div>
                                         </div>
                                     </div>
                                 </div>
@@ -504,8 +504,8 @@
                                     </ul>
                                     <div class="card-bottom">
                                         <div class="price-list price-style-01">
-                                            <div class="price current-price">$56.00 AED</div>
-                                            <div class="price old-price">$65.00 AED</div>
+                                            <div class="price current-price">56.00 AED</div>
+                                            <div class="price old-price">65.00 AED</div>
                                         </div>
                                     </div>
                                 </div>
@@ -556,8 +556,8 @@
                                     </ul>
                                     <div class="card-bottom">
                                         <div class="price-list price-style-01">
-                                            <div class="price current-price">$45.00 AED</div>
-                                            <div class="price old-price">$59.00 AED</div>
+                                            <div class="price current-price">45.00 AED</div>
+                                            <div class="price old-price">59.00 AED</div>
                                         </div>
                                     </div>
                                 </div>
@@ -608,8 +608,8 @@
                                     </ul>
                                     <div class="card-bottom">
                                         <div class="price-list price-style-01">
-                                            <div class="price current-price">$39.00 AED</div>
-                                            <div class="price old-price">$49.00 AED</div>
+                                            <div class="price current-price">39.00 AED</div>
+                                            <div class="price old-price">49.00 AED</div>
                                         </div>
                                     </div>
                                 </div>
