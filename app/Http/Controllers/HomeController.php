@@ -12,6 +12,11 @@
             return view('website.home',compact('courses'));
         }
 
+        public function course()
+        {
+            return view('website.course.show');
+        }
+
         public function registerOnline()
         {
             return view('website.register-online');

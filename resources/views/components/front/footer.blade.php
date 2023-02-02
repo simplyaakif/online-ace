@@ -84,7 +84,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner text-center">
-                        <p>Copyright 2023 <a href="#">EduVibe</a> Designed By <a href="https://themeforest.net/user/devsvibe">DevsVibe</a>. All Rights Reserved</p>
+                        <p>Copyright 2023 <a href="#">Ace American Center</a> Designed By <a
+                                href="https://appsoulz.com">AppSoulz</a>. All Rights Reserved</p>
                     </div>
                 </div>
             </div>

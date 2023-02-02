@@ -17,6 +17,7 @@
 */
 //if (!App::environment('production')) {
 Route::get('/', [HomeController::class,'index'])->name('website.home');
+Route::get('course', [HomeController::class,'course'])->name('website.course');
 //}
 //else{
 // Route::get('/',function (){

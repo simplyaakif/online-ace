@@ -114,8 +114,8 @@
                         <div class="image-2"><img src="{{asset('/images/about/about-09/about-image-02.jpg')}}"
                                                   alt="About
                         Parallax Thumb" /></div>
-                        <div class="badge-inner"><img class="image-3" src="{{asset('/images/about/about-09/badge
-                        .png')}}"
+                        <div class="badge-inner"><img class="image-3"
+                                                      src="{{asset('/images/about/about-09/badge.png')}}"
                                                       alt="About Circle Thumb" /></div>
                         <div class="shape-image shape-image-1"><img src="{{asset('/images/shapes/shape-04-01.png')}}"
                                                                     alt="Shape Thumb" /></div>
