@@ -102,7 +102,7 @@
     <div class="grid grid-cols-2 gap-2">
         @foreach($accounts as $account)
             <div class="p-4 bg-blue-50 rounded ">
-                <ul >
+                <ul>
                     <li>Bank: {{$account->bank}}</li>
                     <li>Title: {{$account->title}}</li>
                     <li>Account #: {{$account->account_number}}</li>
