@@ -10,6 +10,8 @@ module.exports = {
             colors:{
                 'brand-r':'#B80404',
                 'brand-b':'#282373',
+                'brand-bb':'#022334',
+                'brand-c':'#00FF79',
                 danger: colors.rose,
                 primary: colors.blue,
                 success: colors.green,
