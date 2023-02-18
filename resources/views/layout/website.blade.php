@@ -27,7 +27,7 @@
 <x-impersonate::banner/>
 <div class="main-wrapper">
     <x-shared.header/>
-    @yield('content')
+        @yield('content')
     <x-front.footer/>
 </div>
 <div class="rn-progress-parent">

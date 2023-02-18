@@ -65,7 +65,8 @@
                     <tr>
                         <td class="border border-gray-200 p-2">{{$invoice->batch->title}}</td>
                         <td class="border border-gray-200 p-2 capitalize">{{$schedule['day']}}</td>
-                        <td class="border border-gray-200 p-2 text-right">{{carbon($schedule['time'])->format('h:i A')
+                        <td class="border border-gray-200 p-2 text-right">
+                            {{carbon($schedule['time'])->format('h:i A')
                         }}</td>
                     </tr>
                 @empty

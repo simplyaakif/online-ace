@@ -1,4 +1,4 @@
-@extends('layout.website')
+@extends('layout.invoice')
 
 @section('content')
 
