@@ -11,6 +11,11 @@ class BatchStudent extends Model
 
     protected $table = 'batch_student';
 
+    public $casts = [
+    'start_date'=>'date',
+    'end_date'=>'date',
+        ];
+
     const STATUS=[
       'active'=>'Active',
       'cancelled'=>'Cancelled',
