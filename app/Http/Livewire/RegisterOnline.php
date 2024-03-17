@@ -18,8 +18,11 @@
 
         public Query $query;
         public $courses = [];
-//        public $title;
-//        public $content;
+        public $name;
+        public $mobile;
+        public $wapp;
+
+
 
         public function mount(): void
         {
@@ -39,7 +42,7 @@
                           TextInput::make('mobile')->label('Mobile Number'),
                           TextInput::make('wapp')->label('Whatsapp Number'),
 
-                          Forms\Components\MultiSelect::make('courses')
+                          Forms\Components\Select::make('courses')
                           ->options(Course::all()->pluck('title','id'))
                          ])
             ];
@@ -47,7 +50,7 @@
 
         public function submit(): void
         {
-            // ...
+            dd($this->courses)    ;
         }
 
         public function render(): View

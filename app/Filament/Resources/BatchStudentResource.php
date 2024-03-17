@@ -6,9 +6,9 @@ use App\Filament\Resources\BatchStudentResource\Pages;
 use App\Filament\Resources\BatchStudentResource\RelationManagers;
 use App\Models\BatchStudent;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Builder;
@@ -18,7 +18,8 @@ class BatchStudentResource extends Resource
 {
     protected static ?string $model = BatchStudent::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'iconsax-lin-user-add';
+
     protected static ?string $navigationLabel = 'Admissions';
 
     protected static ?string $navigationGroup = 'Admission Management';
@@ -89,7 +90,6 @@ class BatchStudentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\RecoveriesRelationManager::class,
         ];
     }
 

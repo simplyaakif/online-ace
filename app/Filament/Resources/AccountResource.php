@@ -7,9 +7,9 @@
     use Filament\Forms\Components\Placeholder;
     use Filament\Forms\Components\Select;
     use Filament\Forms\Components\TextInput;
-    use Filament\Resources\Form;
+    use Filament\Forms\Form;
     use Filament\Resources\Resource;
-    use Filament\Resources\Table;
+    use Filament\Tables\Table;
     use Filament\Tables\Columns\TextColumn;
 
     class AccountResource extends Resource {
@@ -20,6 +20,7 @@
 
         protected static ?string $recordTitleAttribute = 'title';
         protected static ?string $navigationGroup = 'Finance Management';
+        protected static ?string $navigationIcon = 'iconsax-lin-bank';
 
 
         public static function form(Form $form): Form

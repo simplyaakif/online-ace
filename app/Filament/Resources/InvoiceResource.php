@@ -10,9 +10,9 @@
     use Filament\Forms\Components\Placeholder;
     use Filament\Forms\Components\Select;
     use Filament\Forms\Components\TextInput;
-    use Filament\Resources\Form;
+    use Filament\Forms\Form;
     use Filament\Resources\Resource;
-    use Filament\Resources\Table;
+    use Filament\Tables\Table;
     use Filament\Tables\Actions\Action;
     use Filament\Tables\Columns\TextColumn;
     use File;
@@ -26,7 +26,7 @@
 
         protected static ?string $recordTitleAttribute = 'title';
         protected static ?string $navigationGroup = 'Finance Management';
-        protected static ?string $navigationIcon = 'heroicon-o-receipt-tax';
+        protected static ?string $navigationIcon = 'heroicon-o-receipt-percent';
 
         public static function form(Form $form): Form
         {

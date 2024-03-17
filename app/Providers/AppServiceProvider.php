@@ -28,18 +28,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Model::unguard();
-        Filament::serving(function (){
-            Filament::registerTheme(
-                app(Vite::class)('resources/css/filament.css'),
-            );
-            Filament::registerNavigationItems([
-//                                                  NavigationItem::make('Generate Invoice')
-//                                                      ->url('https://filament.pirsch.io', shouldOpenInNewTab: true)
-//                                                      ->icon('heroicon-o-presentation-chart-line')
-//                                                      ->group('Finance Management')
-//                                                      ->sort(3),
-                                              ]);
-        });
+//        Filament::serving(function (){
+//            Filament::registerTheme(
+//                app(Vite::class)('resources/css/filament.css'),
+//            );
+//        });
         Filament::registerNavigationGroups([
                                                'Dashboard',
                                                'Query Management',

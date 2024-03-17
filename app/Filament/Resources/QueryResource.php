@@ -6,9 +6,9 @@
     use App\Models\Query;
     use Filament\Forms\Components\Placeholder;
     use Filament\Forms\Components\TextInput;
-    use Filament\Resources\Form;
+    use Filament\Forms\Form;
     use Filament\Resources\Resource;
-    use Filament\Resources\Table;
+    use Filament\Tables\Table;
     use Filament\Tables\Columns\TagsColumn;
     use Filament\Tables\Columns\TextColumn;
 
@@ -17,6 +17,9 @@
         protected static ?string $model = Query::class;
 
         protected static ?string $slug = 'queries';
+
+        protected static ?string $navigationIcon = 'iconsax-lin-profile-2user';
+
 
         protected static ?string $recordTitleAttribute = 'name';
 
