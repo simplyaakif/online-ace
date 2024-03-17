@@ -25,7 +25,7 @@ if (!App::environment('production')) {
 }
 else{
  Route::get('/',function (){
-     return to_route('filament.auth.login');
+     return to_route('filament.admin.auth.login');
  }) ;
 }
 
