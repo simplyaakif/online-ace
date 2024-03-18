@@ -8,7 +8,10 @@ use Filament\Pages\Page;
 use Illuminate\Database\Eloquent\Builder;
 class Classes extends Page
 {
-    protected static ?string $navigationIcon = 'iconsax-lin-home';
+    protected static ?string $navigationIcon = 'iconsax-out-home-1';
+
+    protected static ?string $navigationGroup = 'Admission Management';
+
 
     protected static string $view = 'filament.pages.classes';
 
