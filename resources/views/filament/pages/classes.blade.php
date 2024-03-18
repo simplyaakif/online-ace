@@ -1,6 +1,6 @@
 <x-filament-panels::page>
     @if($show_class)
-        <section class="mt-4 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3">
+        <section class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3">
             @foreach($batches as $batch)
                 <div wire:key="{{ $batch->id }}" class="bg-white dark:bg-gray-900 rounded-lg shadow">
                     <div class="p-4">
