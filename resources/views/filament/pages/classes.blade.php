@@ -16,7 +16,7 @@
                             <div>
                                 <span class="bg-primary-600 text-white rounded-full text-base flex justify-center
                                 items-center w-8 h-8">
-                                {{count($batch->batch_students)}}
+                                {{count($batch->batch_students()->where('end_date','>=',now())->get())}}
                                 </span>
                             </div>
                         </div>
