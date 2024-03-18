@@ -2,7 +2,7 @@
     @if($show_class)
         <section class="mt-4 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3">
             @foreach($batches as $batch)
-                <div wire:key="{{ $batch->id }}" class="bg-white rounded-lg shadow">
+                <div wire:key="{{ $batch->id }}" class="bg-white dark:bg-gray-900 rounded-lg shadow">
                     <div class="p-4">
                         <div class="flex justify-between items-center">
                             <div>
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full px-4  py-2 text-sm rounded-b-lg bg-gray-50">
+                    <div class="w-full px-4  py-2 text-sm rounded-b-lg bg-gray-50 dark:bg-gray-800">
                         <button wire:click="show_students({{$batch->id}})">
                             View Batch
                         </button>
@@ -39,7 +39,7 @@
             </button>
             <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 @foreach($students as $student)
-                    <li wire:key="{{ $student->id }}" class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
+                    <li wire:key="{{ $student->id }}" class="col-span-1 flex flex-col text-center bg-white dark:bg-gray-900 rounded-lg shadow divide-y divide-gray-200">
                         <div class="flex-1 flex flex-col p-8">
                             <div href="">
                                 {{--                        <img class="w-24 h-24 flex-shrink-0 object-cover mx-auto rounded-full" src="https://portal.ace.org.pk/storage/515/2Pj8fn2hJOh77vLOM0dnQGX6Qye7ti-metaRmFyd2FoIGJhdG9vbC5qcGc=-.jpg" alt="Farwah batool" title="Farwah batool">--}}
