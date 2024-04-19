@@ -128,7 +128,8 @@
                            Forms\Components\Grid::make(2)
                       ->schema([
                            TextInput::make('amount')
-                           ->disabled(),
+                           ->disabled()
+                           ->dehydrated(),
                            TextInput::make('tx_id')
                                ->label('Transaction/Slip Number')
                                ->placeholder('Transaction or Slip Number')

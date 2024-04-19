@@ -20,7 +20,7 @@ class CreateStudent extends CreateRecord
         $user = [
             'name'=>$data['name'],
             'email'=>$data['email'],
-            'password'=>$data['password'],
+            'password'=>bcrypt($data['password']),
         ];
         $student = [
           'name'=>$data['name'],
@@ -36,6 +36,7 @@ class CreateStudent extends CreateRecord
         $user_model->save();
 
         $student['reg_number']=$roll;
+        $student['user_id']=$user_model->id;
         $student_model = Student::create($student);
 
         foreach($batches as $batch) {
