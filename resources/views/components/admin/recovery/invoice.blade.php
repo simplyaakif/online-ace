@@ -13,7 +13,7 @@
             </div>
             <div class="text-right">
                 <h4>Status</h4>
-                <h3 class="text-xl font-bold text-brand-c">Unpaid</h3>
+                <h3 class="text-xl font-bold text-brand-r">Unpaid</h3>
             </div>
         </div>
         <div class="flex justify-between ">
@@ -23,7 +23,7 @@
             </div>
             <div class="text-right">
                 <h4>Due Date</h4>
-                <h3 class="text-xl font-bold text-brand-c">{{carbon($invoice->due_date)->format('d-M-Y')}}</h3>
+                <h3 class="text-xl font-bold text-brand-r">{{carbon($invoice->due_date)->format('d-M-Y')}}</h3>
             </div>
         </div>
 
@@ -90,16 +90,16 @@
     </div>
     <div class="w-1/4  mt-8">
 
-        <div class="flex   mr-auto  h-full">
-        <img class="w-auto  -rotate-90 ml-auto mr-0 " src="{{asset('img/Logo BG.svg')}}" alt="">
+        <div class="flex  mr-auto  ">
+        <img class="ml-auto mr-0 w-36 mt-0" src="{{asset('img/ace-long-logo.jpg')}}" alt="">
         </div>
     </div>
 </div>
 <div class="max-w-4xl mx-auto bg-white px-8">
-    <h2 class="text-xl text-brand-c font-bold mt-4 mb-4">
+    <h2 class="text-xl text-brand-r font-bold mt-4 mb-4">
     Payment Options
     </h2>
-    <div class="grid grid-cols-2 gap-2">
+    <div class="grid grid-cols-2 gap-2 pb-16">
         @foreach($accounts as $account)
             <div class="p-4 bg-blue-50 rounded ">
                 <ul>
