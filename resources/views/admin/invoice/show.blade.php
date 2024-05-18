@@ -7,6 +7,8 @@
 
         <x-admin.recovery.invoice :accounts="$accounts" :invoice="$invoice"/>
 
+
+
 {{--        <div class=" mt-10">--}}
 {{--            <div class="text-center">--}}
 {{--                This invoice was generated on {{now()->format('d-M-Y')}}--}}
