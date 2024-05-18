@@ -21,6 +21,7 @@ if (!App::environment('production')) {
     Route::resource('recoveries', RecoveryController::class,['only' => 'show']);
     Route::resource('invoices', InvoicesController::class,['only' => 'show']);
 
+
     Route::get('register-online', [HomeController::class,'registerOnline'])->name('register-online');
 }
 else{
